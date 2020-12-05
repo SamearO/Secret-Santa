@@ -1,7 +1,7 @@
 var nodemailer = require('nodemailer');
 
 // put your users names and email adresses into this 2d array 
-let restrains = [["",""],["",""],["",""]]
+let restraints = [["",""],["",""],["",""]]
 
 // replace user and pass with your credentials. Change service to your email provider 
 var transporter = nodemailer.createTransport({
@@ -12,10 +12,11 @@ var transporter = nodemailer.createTransport({
     }
   });
 
+  // replace from: with your email
 function sendEmails(users){
     let email = "HELLO "+ users.sender[0]+" IT APPEARS YOU HAVE BEEN QUESTED TO PURCHASE... "+(users.receiver)[0]+" A PREZZIE!"
     var mailOptions = {
-        from: 'ouarbyasamir@gmail.com',
+        from: '',
         to: users.sender[1],
         subject: 'SECRET SANTA',
         text: email
@@ -51,7 +52,7 @@ var pair = function(arr) {
 };
 
 // sends emails to every user letting them know who they have to buy a present for
-let index = pair(restrains).length 
+let index = pair(restraints).length 
 for(let i=0; i < index; i++){
-    sendEmails(pair(restrains)[i])
+    sendEmails(pair(restraints)[i])
 }
