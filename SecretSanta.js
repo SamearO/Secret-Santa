@@ -52,7 +52,8 @@ var pair = function(arr) {
 };
 
 // sends emails to every user letting them know who they have to buy a present for
-let index = pair(restraints).length 
+let dataset = pair(restraints)
+let index = dataset.length
 for(let i=0; i < index; i++){
-    sendEmails(pair(restraints)[i])
+    sendEmails(dataset[i])
 }
